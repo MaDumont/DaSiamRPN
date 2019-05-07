@@ -13,7 +13,7 @@ from os.path import realpath, dirname, join
 name_image_folder='easy_follow_prism'
 
 
-init_rbox = [545,165 , 635,160 , 640,250 , 550,255]
+init_rbox = [293,114 , 336,110 , 336,171 , 295,175]
 
 im = cv2.imread('./images/frame0.jpg')  # HxWxC
 

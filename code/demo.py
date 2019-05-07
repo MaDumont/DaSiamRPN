@@ -24,8 +24,7 @@ name_image_folder='images'
 # image and init box
 image_files = sorted(glob.glob('./' + name_image_folder + '/*.jpg'))
 
-init_rbox = [545,165 , 635,160 , 640,250 , 550,255]
-#init_rbox = [334.02,128.36,438.19,188.78,396.39,260.83,292.23,200.41]
+init_rbox = [293,114 , 336,110 , 336,171 , 295,175]
 [cx, cy, w, h] = get_axis_aligned_bbox(init_rbox)
 
 # tracker init

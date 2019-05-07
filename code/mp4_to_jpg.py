@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # set video file path of input video with name and extension
-vid = cv2.VideoCapture('./video/second_video_prism_john.mp4')
+vid = cv2.VideoCapture('/home/themadman/Videos/second_video_prism_john.mp4')
 
 
 output_folder_name = 'images'
@@ -14,6 +14,19 @@ if not os.path.exists(output_folder_name):
 
 #for frame identity
 index = 0
+
+while(index < 100):
+    ret, frame = vid.read()
+    # end of frames
+    if not ret: 
+        break
+    index += 1
+
+index = 0
+
+
+
+
 while(index < 200):
     # Extract images
     ret, frame = vid.read()
@@ -22,7 +35,7 @@ while(index < 200):
         break
 
     height, width, depth= frame.shape
-    frame = cv2.resize(frame,(1080,745))
+    frame = cv2.resize(frame,(512,512))
     # Saves images
     name = './' + output_folder_name + '/frame' + str(index) + '.jpg'
     print ('Creating...' + name)
