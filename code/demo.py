@@ -19,9 +19,13 @@ net = SiamRPNvot()
 net.load_state_dict(torch.load(join(realpath(dirname(__file__)), 'SiamRPNVOT.model')))
 net.eval().cuda()
 
+name_image_folder='easy_follow_prism'
+
 # image and init box
-image_files = sorted(glob.glob('./bag/*.jpg'))
-init_rbox = [334.02,128.36,438.19,188.78,396.39,260.83,292.23,200.41]
+image_files = sorted(glob.glob('./' + name_image_folder + '/*.jpg'))
+
+init_rbox = [1030,455 , 1110,455 , 1110,520 , 1030,520]
+#init_rbox = [334.02,128.36,438.19,188.78,396.39,260.83,292.23,200.41]
 [cx, cy, w, h] = get_axis_aligned_bbox(init_rbox)
 
 # tracker init
@@ -42,7 +46,7 @@ for f, image_file in enumerate(image_files):
 
     np_image = np.asarray(im)
 
-    output_name = image_file.replace("bag", "output", 1)
+    output_name = image_file.replace(name_image_folder, "output", 1)
     print(output_name)
     cv2.imwrite(output_name,im)
 
