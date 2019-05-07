@@ -42,6 +42,10 @@ for f, image_file in enumerate(image_files):
 
     np_image = np.asarray(im)
 
+    output_name = image_file.replace("bag", "output", 1)
+    print(output_name)
+    cv2.imwrite(output_name,im)
+
     plt.imshow(np_image)
     plt.show()
 
