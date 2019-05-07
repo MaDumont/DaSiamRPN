@@ -42,7 +42,7 @@ for f, image_file in enumerate(image_files):
 
     np_image = np.asarray(im)
 
-    plt.imshow(image)
+    plt.imshow(np_image)
     plt.show()
 
 print('Tracking Speed {:.1f}fps'.format((len(image_files)-1)/(toc/cv2.getTickFrequency())))
