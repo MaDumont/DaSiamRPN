@@ -6,6 +6,7 @@
 #!/usr/bin/python
 
 import glob, cv2, torch
+import matplotlib.pyplot as plt
 import numpy as np
 from os.path import realpath, dirname, join
 
@@ -38,7 +39,10 @@ for f, image_file in enumerate(image_files):
     res = cxy_wh_2_rect(state['target_pos'], state['target_sz'])
     res = [int(l) for l in res]
     cv2.rectangle(im, (res[0], res[1]), (res[0] + res[2], res[1] + res[3]), (0, 255, 255), 3)
-    cv2.imshow('SiamRPN', im)
-    cv2.waitKey(1)
+
+    np_image = np.asarray(im)
+
+    plt.imshow(image)
+    plt.show()
 
 print('Tracking Speed {:.1f}fps'.format((len(image_files)-1)/(toc/cv2.getTickFrequency())))
